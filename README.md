@@ -25,4 +25,5 @@ Feel free to explore the code, experiment with the API, and provide any feedback
 Thank you for taking the time to explore this demo!
 
 Best regards,
+
 Chloe
