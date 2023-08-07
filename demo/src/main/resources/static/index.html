@@ -5,6 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* Changing color effect for the title */
+        .bling-title {
+            font-size: 36px;
+            animation: rainbowColorAnimation 6s infinite alternate;
+        }
+
+        /* Animation keyframes for rainbow color change */
+        @keyframes rainbowColorAnimation {
+            0%, 100% {
+                color: #ff0000; /* Red */
+            }
+            14% {
+                color: #ff8000; /* Orange */
+            }
+            28% {
+                color: #ffff00; /* Yellow */
+            }
+            42% {
+                color: #80ff00; /* Green */
+            }
+            57% {
+                color: #00ff80; /* Blue-Green (Cyan) */
+            }
+            71% {
+                color: #0080ff; /* Blue */
+            }
+            85% {
+                color: #8000ff; /* Purple */
+            }
+        }
 
         /* Example CSS for icons */
         .link-icon {
@@ -97,7 +127,7 @@
         }
     </style>
 
-    <h1>Welcome to Chloe's Holiday Gift Shop</h1>
+    <h1 class="bling-title">Welcome to Chloe's Holiday Gift Shop</h1>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
     <script>
         function downloadBooksPDF() {
