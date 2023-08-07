@@ -68,6 +68,6 @@ public class BoardGame implements Product {
 
     @Override
     public String getDiscountInfo() {
-        return null;
+        return "Buy one get one 25% off!";
     }
 }
