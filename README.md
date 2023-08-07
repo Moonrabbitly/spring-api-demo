@@ -1,6 +1,6 @@
 # spring-api-demo
 
-Welcome to the Spring API Demo project! This repository contains a simple website demo that utilizes a restful API. The frontend of the project can be accessed through the following link:
+Welcome to the Spring API Demo project! This repository contains a simple website demo that utilizes restful API. The frontend of the project can be accessed through the following link:
 
 [https://chloe-spring-api-demo-fwfijxnwba-uw.a.run.app](https://chloe-spring-api-demo-fwfijxnwba-uw.a.run.app)
 
