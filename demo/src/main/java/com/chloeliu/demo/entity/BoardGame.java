@@ -1,16 +1,28 @@
 package com.chloeliu.demo.entity;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "boardgame")
 public class BoardGame implements Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private int id;
+
+    @Column(name="product_name")
     private String pname;
+    @Column(name="barcode")
     private String barcode;
+    @Column(name="price")
     private double price;
+    @Column(name="inventory_count")
     private int noofproduct;
+    @Column(name="description")
     private String description;
     //private boolean onSale;
     public BoardGame() {}
-    public BoardGame(int id, String pname, String barcode, double price, int noofproduct, String description) {
-        this.id = id;
+    public BoardGame(String pname, String barcode, double price, int noofproduct, String description) {
+        //this.id = id;
         this.pname = pname;
         this.barcode = barcode;
         this.price = price;
@@ -64,6 +76,18 @@ public class BoardGame implements Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "BoardGame{" +
+                "id=" + id +
+                ", pname='" + pname + '\'' +
+                ", barcode='" + barcode + '\'' +
+                ", price=" + price +
+                ", noofproduct=" + noofproduct +
+                ", description='" + description + '\'' +
+                '}';
     }
 
     @Override

@@ -1,7 +1,8 @@
+/***
+
 package com.chloeliu.demo.service;
 
 import com.chloeliu.demo.entity.BoardGame;
-import com.chloeliu.demo.entity.Book;
 import com.chloeliu.demo.entity.Product;
 import org.springframework.stereotype.Service;
 
@@ -39,3 +40,5 @@ public class BoardGameService implements IService{
         return products;
     }
 }
+
+ ***/
