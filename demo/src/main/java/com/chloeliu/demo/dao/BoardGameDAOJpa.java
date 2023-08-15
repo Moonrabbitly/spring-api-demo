@@ -1,6 +1,5 @@
-package com.chloeliu.demo.service;
+package com.chloeliu.demo.dao;
 
-import com.chloeliu.demo.entity.BoardGame;
 import com.chloeliu.demo.entity.Product;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
@@ -12,7 +11,7 @@ import java.util.List;
 //@Repository: This annotation marks the class as a Spring bean and indicates that it should be eligible for component scanning.
 //Spring will automatically detect and manage instances of this class.
 @Repository
-public class BoardGameDAOJpa implements IService {
+public class BoardGameDAOJpa implements ProductDAO {
 
     //define field for entitymanager
     private EntityManager entityManager;
@@ -22,6 +21,7 @@ public class BoardGameDAOJpa implements IService {
     public BoardGameDAOJpa(EntityManager theEntityManager) {
         entityManager = theEntityManager;
     }
+
     @Override
     public List<Product> findAll() {
         //create a query

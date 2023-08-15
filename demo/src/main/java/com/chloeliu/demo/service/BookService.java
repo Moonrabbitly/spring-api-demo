@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BookService implements IService {
+public class BookService implements ProductService {
     @Override
     public List<Product> findAll()
     {

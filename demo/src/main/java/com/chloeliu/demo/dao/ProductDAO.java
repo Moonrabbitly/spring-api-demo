@@ -1,8 +1,9 @@
-package com.chloeliu.demo.service;
+package com.chloeliu.demo.dao;
 
 import com.chloeliu.demo.entity.Product;
+
 import java.util.List;
 
-public interface IService {
+public interface ProductDAO {
     List<Product> findAll();
 }
