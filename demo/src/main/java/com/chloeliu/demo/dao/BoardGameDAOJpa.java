@@ -1,5 +1,6 @@
 package com.chloeliu.demo.dao;
 
+import com.chloeliu.demo.entity.BoardGame;
 import com.chloeliu.demo.entity.Product;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
@@ -32,7 +33,26 @@ public class BoardGameDAOJpa implements ProductDAO {
         //execute query and get result list
         List<Product> boardGames = theQuery.getResultList();
 
-        //return the results
         return boardGames;
+    }
+
+    //Note here we don't handle @Transactional at DAO layer, it will be handled in the Service layer
+    @Override
+    public Product findById(int theId) {
+        Product theBoardGame = entityManager.find(BoardGame.class, theId);
+        return theBoardGame;
+    }
+
+    @Override
+    public Product save(Product theProduct) {
+        //if id == 0, it will insert/save, else, it will update the current product
+        Product dbBoardGame = entityManager.merge(theProduct);
+        return dbBoardGame;
+    }
+
+    @Override
+    public void deleteById(int theId) {
+        Product theBoardGame = entityManager.find(BoardGame.class, theId);
+        entityManager.remove(theBoardGame);
     }
 }

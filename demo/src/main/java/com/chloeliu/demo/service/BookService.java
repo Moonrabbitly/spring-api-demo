@@ -7,7 +7,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BookService implements ProductService {
+public class BookService implements IProductService {
+
     @Override
     public List<Product> findAll()
     {
@@ -27,5 +28,20 @@ public class BookService implements ProductService {
 
         //returns a list of product
         return products;
+    }
+
+    @Override
+    public Product findById(int theId) {
+        return null;
+    }
+
+    @Override
+    public Product save(Product theProduct) {
+        return null;
+    }
+
+    @Override
+    public void deleteById(int theId) {
+
     }
 }
