@@ -129,6 +129,35 @@
 
     <h1 class="bling-title">Welcome to Chloe's Holiday Gift Shop</h1>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
+    <input type="text" id="searchInput" placeholder="Search By ID or Keyword">
+    <button onclick="searchBoardGame()">Search</button>
+
+    <div id="detailsContainer">
+        <!-- Board game details will be updated dynamically here -->
+    </div>
+
+    <p>
+        <span class="link-icon">&#128218;</span>
+        <a href="book">Best-Selling Children's Books</a>
+        <button class="download-button" onclick="downloadBooksPDF()">Download PDF</button>
+    </p>
+
+    <p>
+        <span class="link-icon">&#127922;</span>
+        <a href="boardgame">Best-Selling Family Board Games</a>
+        <button class="download-button" onclick="downloadBoardGamesPDF()">Download PDF</button>
+    </p>
+
+    <!-- Add the picture before the footer -->
+    <img src="IMG_8830.JPG" alt="Description of the image" width="600" height="400">
+
+    <footer>
+        <p>&copy; Created by Chloe Liu. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
     <script>
         function downloadBooksPDF() {
             downloadPDF("Best-Selling Children's Books", 'book');
@@ -170,27 +199,38 @@
                     console.error('Error fetching data:', error);
                 });
         }
+
+        function searchBoardGame() {
+            const searchTerm = document.getElementById("searchInput").value;
+            const detailsContainer = document.getElementById("detailsContainer");
+
+            fetch(`http://localhost:8080/boardgame/${searchTerm}`)
+                .then(response => response.json())
+                .then(boardGames => {
+                    // Clear the content first
+                    detailsContainer.innerHTML = "";
+
+                    if (boardGames.length === 0) {
+                        detailsContainer.innerHTML = "<p>Sorry, we didn't find any product that matches your search.</p>";
+                    } else {
+                        boardGames.forEach(boardGame => {
+                            detailsContainer.innerHTML += `
+                                <h2>${boardGame.pname}</h2>
+                                <p>Barcode: ${boardGame.barcode}</p>
+                                <p>Price: ${boardGame.price}</p>
+                                <p>In Stock: ${boardGame.noofproduct}</p>
+                                <p>Description: ${boardGame.description}</p>
+                                <!-- Add more details as needed -->
+                            `;
+                        });
+                    }
+                })
+                .catch(error => {
+                    detailsContainer.innerHTML = "<p>Sorry, we didn't find any product that matches your search.</p>";
+                    console.error('Error fetching data:', error);
+                });
+        }
+
     </script>
-
-    <p>
-        <span class="link-icon">&#128218;</span>
-        <a href="book">Best-Selling Children's Books</a>
-        <button class="download-button" onclick="downloadBooksPDF()">Download PDF</button>
-    </p>
-
-    <p>
-        <span class="link-icon">&#127922;</span>
-        <a href="boardgame">Best-Selling Family Board Games</a>
-        <button class="download-button" onclick="downloadBoardGamesPDF()">Download PDF</button>
-    </p>
-
-    <!-- Add the picture before the footer -->
-    <img src="IMG_8830.JPG" alt="Description of the image" width="600" height="400">
-
-    <footer>
-        <p>&copy; Created by Chloe Liu. All Rights Reserved.</p>
-    </footer>
-
-</body>
 
 </html>

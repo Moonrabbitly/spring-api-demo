@@ -1,6 +1,6 @@
 package com.chloeliu.demo.entity;
 
-public class Book implements Product{
+public class Book extends Product {
     private int id;
     private String pname;
     private String barcode;

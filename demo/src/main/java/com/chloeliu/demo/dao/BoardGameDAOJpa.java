@@ -55,4 +55,5 @@ public class BoardGameDAOJpa implements ProductDAO {
         Product theBoardGame = entityManager.find(BoardGame.class, theId);
         entityManager.remove(theBoardGame);
     }
+
 }

@@ -13,4 +13,6 @@ public interface IProductService {
 
     void deleteById(int theId);
 
+    public List<Product> findByName(String keyword);
+
 }

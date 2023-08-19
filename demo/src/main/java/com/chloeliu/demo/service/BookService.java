@@ -44,4 +44,9 @@ public class BookService implements IProductService {
     public void deleteById(int theId) {
 
     }
+
+    @Override
+    public List<Product> findByName(String keyword) {
+        return null;
+    }
 }
