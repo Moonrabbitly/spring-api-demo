@@ -8,6 +8,9 @@ Please note:
 1. The newest update of this demo website's backend/frontend is always in this Git repository (not the link provided above). I only deploy the newest version when I have time.
 2. The first-time click may take about 30 seconds to launch the page due to the cloud's idle time. Subsequent access will be faster as the cloud resources become active.
 
+The latest local version as of August 21, 2023:
+![Frontend Screenshot](https://github.com/Moonrabbitly/spring-api-demo/blob/main/frontend%20screenshot_08.21.23.JPG)
+
 ## About
 
 This project serves as a showcase of my skills in website building and API integration. I dedicated my evenings and weekends to create this demo, aiming to demonstrate my proficiency in utilizing a restful API and creating a functional frontend.
