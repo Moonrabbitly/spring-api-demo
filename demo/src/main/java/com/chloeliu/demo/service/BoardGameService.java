@@ -10,6 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+
+//The @Service annotation is used to annotate classes that provide some form of business logic or service.
+//These classes encapsulate business-related functionality and often serve as intermediaries between controllers and repositories.
+//The use of @Service helps to distinguish these classes from other components...
+//...and adds a semantic meaning of being a service or business-related component.
 @Service
 public class BoardGameService implements IProductService {
 

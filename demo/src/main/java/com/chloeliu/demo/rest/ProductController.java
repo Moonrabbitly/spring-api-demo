@@ -18,7 +18,6 @@ import java.util.List;
 public class ProductController {
     @Autowired
     private BookService bookService;
-
     @Autowired
     private BoardGameService boardGameService;
 
@@ -34,7 +33,7 @@ public class ProductController {
         return boardGameService.findAll();
     }
 
-    //add mapping for GET /employees/{employeeId}
+    //add mapping for GET /boardgame/{boardgameId}
     @GetMapping(value = "/boardgame/{param}")
     public ResponseEntity<List<Product>> searchBoardGame(@PathVariable String param) {
         List<Product> boardGames;
@@ -51,6 +50,25 @@ public class ProductController {
             boardGames = boardGameService.findByName(param);
         }
         return ResponseEntity.ok(boardGames);
+    }
+
+    //add mapping for GET /book/{bookId}
+    @GetMapping(value = "/book/{param}")
+    public ResponseEntity<List<Product>> searchBook(@PathVariable String param) {
+        List<Product> books;
+        if (param.matches("\\d+")) {
+            // If the parameter is a number, assume it's an ID search
+            int bookId = Integer.parseInt(param);
+            Product theBook = bookService.findById(bookId);
+            if (theBook == null) {
+                return ResponseEntity.notFound().build();
+            }
+            books = Collections.singletonList(theBook);
+        } else {
+            // If the parameter is not a number, assume it's a keyword search
+            books = bookService.findByName(param);
+        }
+        return ResponseEntity.ok(books);
     }
 
 }

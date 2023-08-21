@@ -107,6 +107,31 @@
             align-items: flex-start; /* Align links to the left side */
         }
 
+        /* Add these CSS rules for consistent search results alignment */
+        .boardgame-results {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .book-results {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /* Update the line spacing */
+        .results-container p {
+            margin: 5px 0;
+        }
+
+        /* The class you added to align results consistently */
+        .results-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         footer {
             text-align: left;
             margin-top: 20px; /* Add margin at the top of the footer for additional spacing */
@@ -130,8 +155,14 @@
     <h1 class="bling-title">Welcome to Chloe's Holiday Gift Shop</h1>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 
-    <input type="text" id="searchInput" placeholder="Search By ID or Keyword">
-    <button onclick="searchBoardGame()">Search</button>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search By ID or Keyword">
+        <select id="productType">
+            <option value="boardgame">Board Game</option>
+            <option value="book">Book</option>
+        </select>
+        <button onclick="searchProducts()">Search</button>
+    </div>
 
     <div id="detailsContainer">
         <!-- Board game details will be updated dynamically here -->
@@ -200,26 +231,33 @@
                 });
         }
 
-        function searchBoardGame() {
+        function searchProducts() {
             const searchTerm = document.getElementById("searchInput").value;
+            const productType = document.getElementById("productType").value; // Get selected product type
             const detailsContainer = document.getElementById("detailsContainer");
 
-            fetch(`http://localhost:8080/boardgame/${searchTerm}`)
+            // Clear previous classes
+            detailsContainer.className = "";
+
+            // Add class based on product type
+            detailsContainer.classList.add(productType + "-results", "results-container");
+
+            fetch(`http://localhost:8080/${productType}/${searchTerm}`)
                 .then(response => response.json())
-                .then(boardGames => {
+                .then(products => {
                     // Clear the content first
                     detailsContainer.innerHTML = "";
 
-                    if (boardGames.length === 0) {
+                    if (products.length === 0) {
                         detailsContainer.innerHTML = "<p>Sorry, we didn't find any product that matches your search.</p>";
                     } else {
-                        boardGames.forEach(boardGame => {
+                        products.forEach(product => {
                             detailsContainer.innerHTML += `
-                                <h2>${boardGame.pname}</h2>
-                                <p>Barcode: ${boardGame.barcode}</p>
-                                <p>Price: ${boardGame.price}</p>
-                                <p>In Stock: ${boardGame.noofproduct}</p>
-                                <p>Description: ${boardGame.description}</p>
+                                <h2>${product.pname}</h2>
+                                <p>Barcode: ${product.barcode}</p>
+                                <p>Price: ${product.price}</p>
+                                <p>In Stock: ${product.noofproduct}</p>
+                                <p>Description: ${product.description}</p>
                                 <!-- Add more details as needed -->
                             `;
                         });

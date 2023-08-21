@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 //@Repository: This annotation marks the class as a Spring bean and indicates that it should be eligible for component scanning.
+//The @Repository annotation is typically used to annotate classes that are responsible for data access operations.
 //Spring will automatically detect and manage instances of this class.
 @Repository
 public class BoardGameDAOJpa implements ProductDAO {
@@ -32,7 +33,6 @@ public class BoardGameDAOJpa implements ProductDAO {
 
         //execute query and get result list
         List<Product> boardGames = theQuery.getResultList();
-
         return boardGames;
     }
 

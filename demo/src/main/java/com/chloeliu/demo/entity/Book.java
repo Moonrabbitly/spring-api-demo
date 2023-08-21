@@ -1,10 +1,20 @@
 package com.chloeliu.demo.entity;
-
+import jakarta.persistence.*;
+@Entity
+@Table(name = "book")
 public class Book extends Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private int id;
+    @Column(name="product_name")
     private String pname;
+    @Column(name="barcode")
     private String barcode;
+    @Column(name="price")
     private double price;
+    @Column(name="inventory_count")
     private int noofproduct;
     //private boolean onSale;
     public Book() {}

@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `product_directory`;
 USE `product_directory`;
 
 --
--- Table structure for table `employee`
+-- Table structure for table `boardgame`
 --
 
 DROP TABLE IF EXISTS `boardgame`;
@@ -21,7 +21,7 @@ CREATE TABLE `boardgame` (
 ALTER TABLE `boardgame` AUTO_INCREMENT = 201;
 
 --
--- Data for table `employee`
+-- Data for table `boardgame`
 --
 
 INSERT INTO `boardgame` (`product_name`, `barcode`, `price`, `inventory_count`, `description`) VALUES 

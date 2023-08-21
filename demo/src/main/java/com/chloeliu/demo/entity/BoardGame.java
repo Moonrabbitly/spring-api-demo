@@ -79,18 +79,6 @@ public class BoardGame extends Product {
     }
 
     @Override
-    public String toString() {
-        return "BoardGame{" +
-                "id=" + id +
-                ", pname='" + pname + '\'' +
-                ", barcode='" + barcode + '\'' +
-                ", price=" + price +
-                ", noofproduct=" + noofproduct +
-                ", description='" + description + '\'' +
-                '}';
-    }
-
-    @Override
     public String getDiscountInfo() {
         return "Buy one get one 25% off!";
     }
