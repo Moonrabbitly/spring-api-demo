@@ -5,7 +5,7 @@ Welcome to the Spring API Demo project! This repository contains a simple websit
 [https://chloe-spring-api-demo-fwfijxnwba-uw.a.run.app](https://chloe-spring-api-demo-fwfijxnwba-uw.a.run.app)
 
 Please note:
-1. The newest update of this demo website's backend/frontend is always in this Git repository (not the link provided above). I only deploy the newest version when I have time.
+1. The newest update of this demo website's backend/frontend is always in this Git repository (not the link provided above). I only deploy the newest version when I have time;
 2. The first-time click may take about 30 seconds to launch the page due to the cloud's idle time. Subsequent access will be faster as the cloud resources become active.
 
 The latest local version as of August 21, 2023:
@@ -13,11 +13,11 @@ The latest local version as of August 21, 2023:
 
 ## About
 
-This project serves as a showcase of my skills in website building and API integration. I dedicated my evenings and weekends to create this demo, aiming to demonstrate my proficiency in utilizing a restful API and creating a functional frontend.
+This project serves as a showcase of my skills in website building and API integration. I dedicated my evenings and weekends to create this demo, aiming to demonstrate my proficiency in utilizing a restful API and creating a functional frontend. 
 
 ## Future Plans
 
-I have plans to further enhance this project by gradually incorporating a database and additional services. This will transform the demo into a more comprehensive portfolio piece, showcasing my ability to work with various technologies and build more complex applications.
+I have plans to further enhance this project by gradually incorporating a database and additional services (completed). This will transform the demo into a more comprehensive portfolio piece, showcasing my ability to work with various technologies and build more complex applications. 
 
 ## Getting Started
 
