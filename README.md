@@ -4,7 +4,9 @@ Welcome to the Spring API Demo project! This repository contains a simple websit
 
 [https://chloe-spring-api-demo-fwfijxnwba-uw.a.run.app](https://chloe-spring-api-demo-fwfijxnwba-uw.a.run.app)
 
-Please note that the first-time click may take about 30 seconds to launch the page due to the cloud's idle time. Subsequent access will be faster as the cloud resources become active.
+Please note - 
+1.that the newest update of this demo website's backend/frontend is always in this Git repository (not the link provided above), I only deploy the newest version when I have time;
+2.that the first-time click may take about 30 seconds to launch the page due to the cloud's idle time. Subsequent access will be faster as the cloud resources become active.
 
 ## About
 
