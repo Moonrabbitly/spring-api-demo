@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
-//@RequestMapping("home")
+//@RequestMapping("/home")
 public class ProductController {
     @Autowired
     private BookService bookService;
@@ -22,19 +22,19 @@ public class ProductController {
     private BoardGameService boardGameService;
 
     //mapping the getProduct() method to /book
-    @GetMapping(value = "/book")
+    @GetMapping(value = "/product/book")
     public List<Product> getBook() {
         return bookService.findAll();
     }
 
     //mapping the getProduct() method to /boardgame
-    @GetMapping(value = "/boardgame")
+    @GetMapping(value = "/product/boardgame")
     public List<Product> getBoardGame() {
         return boardGameService.findAll();
     }
 
     //add mapping for GET /book/{bookId}
-    @GetMapping(value = "/book/{param}")
+    @GetMapping(value = "/product/book/{param}")
     public ResponseEntity<List<Product>> searchBook(@PathVariable String param) {
         List<Product> books;
         if (param.matches("\\d+")) {
@@ -53,7 +53,7 @@ public class ProductController {
     }
 
     //add mapping for GET /boardgame/{boardgameId}
-    @GetMapping(value = "/boardgame/{param}")
+    @GetMapping(value = "/product/boardgame/{param}")
     public ResponseEntity<List<Product>> searchBoardGame(@PathVariable String param) {
         List<Product> boardGames;
         if (param.matches("\\d+")) {
@@ -73,7 +73,7 @@ public class ProductController {
 
     //add mapping for POST/book - add new book
     //test in Postman - HTTP method "POST", http://localhost:8080/book
-    @PostMapping("/book")
+    @PostMapping("/product/book")
     public Product addBook(@RequestBody Book theBook) {
         //also just in case they pass an id in JSON...set id to 0
         //this is to force a save of new item...instead of update
@@ -83,7 +83,7 @@ public class ProductController {
     }
 
     //add mapping for POST/boardgame - add new boardgame
-    @PostMapping("/boardgame")
+    @PostMapping("/product/boardgame")
     public Product addBoardGame(@RequestBody BoardGame theBoardGame) {
         theBoardGame.setId(0);
         Product bdBoardGame = boardGameService.save(theBoardGame);
@@ -92,21 +92,21 @@ public class ProductController {
 
     //add mapping for PUT /book - update existing book
     //test in Postman - HTTP method "PUT", http://localhost:8080/book
-    @PutMapping("/book")
+    @PutMapping("/product/book")
     public Product updateBook(@RequestBody Book theBook) {
         Product dbBook = bookService.save(theBook);
         return dbBook;
     }
 
     //add mapping for PUT /boardgame - update existing boardgame
-    @PutMapping("/boardgame")
+    @PutMapping("/product/boardgame")
     public Product updateBoardGame(@RequestBody BoardGame theBoardGame) {
         Product bdBoardGame = bookService.save(theBoardGame);
         return bdBoardGame;
     }
 
     //add mapping for DELETE /book/{bookId} - delete book
-    @DeleteMapping("/book/{bookId}")
+    @DeleteMapping("/product/book/{bookId}")
     public String deleteBook(@PathVariable int bookId) {
         Product tempBook = bookService.findById(bookId);
 
@@ -119,7 +119,7 @@ public class ProductController {
     }
 
     //add mapping for DELETE /boardgame/{boardgameId} - delete boardgame
-    @DeleteMapping("/boardgame/{boardgameId}")
+    @DeleteMapping("/product/boardgame/{boardgameId}")
     public String deleteBoardGame(@PathVariable int boardgameId) {
         Product tempBoardGame = boardGameService.findById(boardgameId);
 
