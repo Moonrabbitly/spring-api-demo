@@ -9,7 +9,7 @@ Please note:
 2. The first-time click may take about 30 seconds to launch the page due to the cloud's idle time. Subsequent access will be faster as the cloud resources become active.
 
 The latest local version as of August 21, 2023:
- - Added search ID/keyword function
+ - Added search by ID/keyword function
 ![Frontend Screenshot](https://github.com/Moonrabbitly/spring-api-demo/blob/main/frontend%20screenshot_08.21.23.JPG)
 
 ## About
