@@ -7,13 +7,17 @@ import com.chloeliu.demo.service.BoardGameService;
 import com.chloeliu.demo.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
 import java.util.Collections;
 import java.util.List;
 
-@RestController
+//when using thymeleaf, it uses @Controller instead of @RestController
+//https://www.netjstech.com/2018/08/difference-between-controller-restcontroller-annotation-spring.html
+@Controller
 //@RequestMapping("/home")
 public class ProductController {
     @Autowired
@@ -22,15 +26,40 @@ public class ProductController {
     private BoardGameService boardGameService;
 
     //mapping the getProduct() method to /book
+
+    //@GetMapping(value = "/product/book")
+    //public List<Product> getBook() {
+    //    return bookService.findAll();
+    //}
+
     @GetMapping(value = "/product/book")
-    public List<Product> getBook() {
-        return bookService.findAll();
+    public String getAllBooks(Model theModel) {
+
+        // get the employees from the database
+        List<Product> theEmployees = bookService.findAll();
+
+        // add to the spring model
+        theModel.addAttribute("books", theEmployees);
+
+        return "products/list-books";
     }
 
     //mapping the getProduct() method to /boardgame
+    //@GetMapping(value = "/product/boardgame")
+    //public List<Product> getBoardGame() {
+    //    return boardGameService.findAll();
+    //}
+
     @GetMapping(value = "/product/boardgame")
-    public List<Product> getBoardGame() {
-        return boardGameService.findAll();
+    public String getAllBoardgames(Model theModel) {
+
+        // get the employees from the database
+        List<Product> theBoardGames = boardGameService.findAll();
+
+        // add to the spring model
+        theModel.addAttribute("boardgames", theBoardGames);
+
+        return "products/list-boardgames";
     }
 
     //add mapping for GET /book/{bookId}

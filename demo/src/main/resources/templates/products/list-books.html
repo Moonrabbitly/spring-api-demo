@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viaewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Book Inventory</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Best-selling Holiday Books</h3>
+    <hr>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Product Name</th>
+                <th>Barcode</th>
+                <th>Price</th>
+                <th>Inventory Count</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempBook : ${books}">
+
+                <td th:text="${tempBook.pname}" />
+                <td th:text="${tempBook.barcode}" />
+                <td th:text="${tempBook.price}" />
+                <td th:text="${tempBook.noofproduct}" />
+
+            </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/home}">Back to Home Page</a>
+
+</div>
+
+</body>
+</html>
+
+
+

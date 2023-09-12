@@ -141,6 +141,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
+    <title>Home Page</title>
+
 </head>
 
 <body class="center-content">
@@ -187,7 +189,7 @@
 
     <p>
         <span class="link-icon">&#128218;</span>
-        <a href="/product/book">Best-Selling Children's Books</a>
+        <a th:href="@{/product/book}">Best-Selling Children's Books</a>
         <button class="download-button" onclick="downloadBooksPDF()">Download PDF</button>
     </p>
 
